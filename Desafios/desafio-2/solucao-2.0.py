@@ -11,19 +11,19 @@ imc = peso_dig / (altura_dig*altura_dig)
 if imc < 18.5 :
     
     print(f'Olá {nome_dig}, seu IMC é: {imc:.2f}.')
-    print('Alerta! Seu IMC está abaixo do peso. \nProcure um profissional')
+    print(f'Alerta {nome_dig}! Seu IMC está abaixo do peso. \nProcure um profissional')
 
-if imc >= 18.5 and imc <= 24.9 :
+elif imc >= 18.5 and imc <= 24.9 :
     
     print(f'Olá {nome_dig}, seu IMC é: {imc:.2f}.')
-    print('Parabéns! Seu IMC está no peso saudável. \nContinue assim!')
+    print(f'Parabéns {nome_dig}! Seu IMC está no peso saudável. \nContinue assim!')
 
-if imc >= 25 and imc <= 29.9 :
+elif imc >= 25 and imc <= 29.9 :
     
     print(f'Olá {nome_dig}, seu IMC é: {imc:.2f}.')
-    print('Atenção! Seu IMC está em sobrepeso. \nProcure um profissional')
+    print(f'Atenção {nome_dig}! Seu IMC está em sobrepeso. \nProcure um profissional')
     
-if imc > 29.9:
+elif imc > 29.9:
     
     print(f'Olá {nome_dig}, seu IMC é: {imc:.2f}.')
-    print('Alerta! Seu IMC está em obesidade! \nProcure um profissional de urgência')
+    print(f'Alerta {nome_dig}! Seu IMC está em obesidade! \nProcure um profissional de urgência')

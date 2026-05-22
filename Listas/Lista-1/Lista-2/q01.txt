@@ -1,0 +1,29 @@
+Lista 01 — Questão 01: Modelo de Memória
+Aluno: Daniel Cassiano
+Data:  22 de maio de 2026
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ENUNCIADO:
+Analise o código abaixo SEM executar.
+Escreva o valor de cada variável após a última linha.
+Explique por que modificar b (ou não) afeta a.
+Depois execute e verifique sua previsão.
+
+Código:
+  a = [10, 20, 30]
+  b = a
+  b.append(40)
+  c = a.copy()
+  c.append(99)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SUA RESPOSTA:
+
+A variável A atribui o array de números inteiros: 10, 20, 30
+A variável B aponta pra mesmo array de A. Então o Valor de B é > 10, 20, 30 (Atribuição por referência)
+A variável B então adiciona o numero inteiro: 40
+Neste momento a lista atribuída à A e B ficam com o valor: 10, 20, 30, 40
+Logo após isso,  C é criado e atribui o valor copiado da variável A.
+O valor atribuído de C neste momento se torna: 10, 20, 30, 40
+Na próxima linha vemos que a variável C adiciona o número inteiro: 99
+O valor atribuído de C neste momento se torna: 10, 20, 30, 40, 99
