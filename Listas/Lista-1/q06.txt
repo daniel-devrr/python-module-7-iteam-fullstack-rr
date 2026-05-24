@@ -1,0 +1,53 @@
+# Lista 01 — Questão 06: Validador de Senha
+# Aluno: Daniel
+# Data: 24/05/2026
+
+# ── Enunciado ───────────────────────────────────────────────────────────────
+# Escreva um programa que solicite uma senha em loop até que atenda TODOS:
+#   1. Mínimo 8 caracteres.
+#   2. Pelo menos um dígito (use .isdigit() em cada caractere).
+#   3. Pelo menos uma letra maiúscula.
+# Para cada tentativa inválida, informe qual critério não foi atendido.
+# Ao aceitar: 'Senha válida após X tentativa(s).'
+
+# ── Sua solução abaixo ──────────────────────────────────────────────────────
+
+tentativas = 0
+
+while True:
+    senha = input("Digite sua nova senha: ")
+    tentativas += 1
+    
+    # Variáveis de controle para os critérios
+    tem_digito = False
+    tem_maiuscula = False
+    erros = []
+    
+    # 1. Validação do tamanho mínimo
+    if len(senha) < 8:
+        erros.append("Mínimo de 8 caracteres.")
+        
+    # Varre caractere por caractere para checar as regras 2 e 3
+    for caractere in senha:
+        if caractere.isdigit():
+            tem_digito = True
+        if caractere.isupper():
+            tem_maiuscula = True
+            
+    # 2. Validação de dígitos
+    if not tem_digito:
+        erros.append("Pelo menos um dígito.")
+        
+    # 3. Validação de letra maiúscula
+    if not tem_maiuscula:
+        erros.append("Pelo menos uma letra maiúscula.")
+        
+    # Se a lista de erros estiver vazia, a senha é válida
+    if not erros:
+        print(f"\nSenha válida após {tentativas} tentativa(s).")
+        break
+    else:
+        print("\n[ERRO] Senha inválida! Critérios não atendidos:")
+        for erro in erros:
+            print(f" - {erro}")
+        print("-" * 40)
