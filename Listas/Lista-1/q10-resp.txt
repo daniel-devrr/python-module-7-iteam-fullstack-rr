@@ -1,0 +1,32 @@
+==============================================================================
+RESPOSTA QUESTÃO 10: ANÁLISE CRÍTICA DE CÓDIGO
+Aluno: Daniel
+==============================================================================
+
+1. PROBLEMA NA DEFINIÇÃO DA FUNÇÃO (Argumento Mutável Padrão)
+• O problema: Usar 'alunos=[]' na assinatura da função.
+• Por que é um problema: Em Python, os argumentos padrões são avaliados apenas 
+  uma vez, quando a função é definida, e não toda vez que ela é chamada. Se a 
+  função modificar essa lista (adicionando itens, por exemplo), essas alterações 
+  vão persistir nas chamadas seguintes. Isso gera bugs graves de vazamento de 
+  dados entre execuções diferentes. O correto é usar 'alunos=None'.
+
+
+2. PROBLEMA EM COMO O LOOP É ESCRITO (Uso anti-pythônico de range(len()))
+• O problema: Usar 'for i in range(len(alunos))' para acessar itens por índice.
+• Por que é um problema: O Python foi desenhado para percorrer coleções de forma 
+  direta. Usar 'range(len())' deixa o código mais poluído, menos legível e mais 
+  lento, pois força o Python a criar um objeto de intervalo, gerar índices e, 
+  depois, buscar o elemento na memória via 'alunos[i]'. A iteração direta com 
+  'for aluno in alunos' é muito mais limpa e rápida.
+
+
+3. PROBLEMA EM COMO A LISTA É CONSTRUÍDA (Concatenação Ineficiente de Listas)
+• O problema: Usar 'aprovados = aprovados + [alunos[i]['nome']]'.
+• Por que é um problema: O operador '+' cria uma lista TOTALMENTE NOVA na memória 
+  a cada iteração, copiando todos os elementos antigos para essa nova lista junto 
+  com o item novo, e depois descarta a lista anterior. Se a lista de alunos for 
+  muito grande, o consumo de memória e processamento explode (complexidade O(n²)). 
+  O método '.append()' resolve isso modificando a lista original diretamente no 
+  lugar (in-place), sendo infinitamente mais eficiente (complexidade O(1)).
+==============================================================================
