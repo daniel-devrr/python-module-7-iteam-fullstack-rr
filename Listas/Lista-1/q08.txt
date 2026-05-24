@@ -1,0 +1,62 @@
+# Lista 01 — Questão 08: is vs ==
+# Aluno: Daniel
+# Data: 24/05/2026
+
+# ── Sua resposta abaixo ──────────────────────────────────────────────────────
+
+"""
+1. EXPLICAÇÃO DA DIFERENÇA:
+
+• Operador '==' (Igualdade de Valor): 
+  Compara o CONTEÚDO de dois objetos. Ele quer saber se os dados armazenados 
+  são equivalentes, independente de onde eles estão guardados na memória.
+
+• Operador 'is' (Identidade de Objeto): 
+  Compara a IDENTIDADE de dois objetos. Ele quer saber se ambas as variáveis 
+  apontam exatamente para o mesmo endereço de memória (se são o mesmo objeto).
+
+
+2. EXEMPLO ONDE O RESULTADO É DIFERENTE:
+
+Quando criamos duas listas com os mesmos elementos, elas têm valores iguais, 
+mas ocupam lugares diferentes na memória do computador.
+
+------------------------------------------------------------------------------
+  lista_a = [1, 2, 3]
+  lista_b = [1, 2, 3]
+
+  print(lista_a == lista_b)  # Retorna True (O conteúdo das listas é idêntico)
+  print(lista_a is lista_b)  # Retorna False (São duas listas separadas na memória)
+------------------------------------------------------------------------------
+
+Se fizermos 'lista_c = lista_a', aí 'lista_c is lista_a' retornará True, 
+pois 'lista_c' vira apenas um apelido para a mesma lista física da memória.
+
+
+3. SITUAÇÃO CORRETA PARA USAR 'is' EM CÓDIGO PROFISSIONAL:
+
+Em ambientes profissionais, o uso do 'is' deve ser restrito e muito bem 
+direcionado. A situação mais comum e recomendada pelo guia de estilo oficial 
+do Python (PEP 8) é a comparação com Singletons (objetos que são únicos no 
+sistema).
+
+O caso clássico é a verificação do valor 'None':
+
+------------------------------------------------------------------------------
+  usuario = buscar_no_banco(id)
+
+  if usuario is None:
+      print("Usuário não encontrado.")
+------------------------------------------------------------------------------
+
+Por que usar 'is None' e não '== None'?
+O operador 'is' é muito mais rápido porque apenas checa o endereço de memória. 
+Além disso, um programador mal-intencionado ou descuidado pode modificar o 
+comportamento do '==' dentro de uma classe personalizada (reescrevendo o método 
+__eq__), o que faria o '== None' dar um resultado mentiroso. O 'is' não pode 
+ser modificado ou burlado.
+
+Também é correto usar 'is' para validar valores booleanos específicos, como 
+'True' ou 'False' (embora o ideal seja apenas usar 'if variavel:'), ou quando 
+você quer explicitamente garantir que duas variáveis são a mesma instância.
+"""
