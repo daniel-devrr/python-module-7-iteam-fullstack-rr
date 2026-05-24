@@ -1,0 +1,35 @@
+==============================================================================
+RESPOSTA QUESTÃO 09: CONCEITOS DE PROGRAMAÇÃO (EAFP vs LBYL)
+Aluno: Daniel
+==============================================================================
+
+1. O QUE SIGNIFICA EAFP?
+A sigla EAFP significa "Easier to Ask for Forgiveness than Permission". 
+Em português, a tradução direta é: "É mais fácil pedir perdão do que permissão".
+
+Na prática da programação, esse estilo dita que você deve tentar executar o 
+bloco de código principal diretamente (assumindo que tudo vai dar certo). Se 
+alguma coisa falhar no caminho, você captura e trata o erro usando uma 
+estrutura de controle de exceções (como o bloco 'try/except').
+
+O oposto disso é o código original do enunciado, chamado de LBYL 
+("Look Before You Leap" ou "Olhe antes de pular"), que usa comandos como 
+'if/else' exaustivamente para checar todas as condições antes de agir.
+
+
+2. QUAL VERSÃO É MAIS PYTHÔNICA?
+A versão EAFP (usando try/except) é considerada a mais Pythônica.
+
+O próprio glossário oficial da documentação do Python destaca o EAFP como uma 
+marca registrada da linguagem. Existem dois motivos principais para isso:
+
+• Desempenho (Performance): No Python, os blocos 'try/except' são extremamente 
+  rápidos e eficientes quando nenhum erro acontece. Se o erro for um evento 
+  raro (ex: o usuário raramente vai tentar dividir por zero), o EAFP roda mais 
+  rápido do que o LBYL, que precisa testar o 'if' todas as vezes.
+
+• Evita Condições de Corrida (Race Conditions): Em sistemas complexos (como 
+  leitura de arquivos ou requisições web), checar se algo existe com um 'if' 
+  não garante que ele continuará lá um milissegundo depois na hora de executar. 
+  O EAFP resolve isso tentando fazer a ação de uma vez. Se falhar, ele trata.
+==============================================================================
