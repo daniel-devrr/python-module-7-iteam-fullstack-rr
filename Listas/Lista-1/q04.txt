@@ -1,0 +1,53 @@
+# Lista 01 — Questão 04: Rastreamento de Loop
+# Aluno: Daniel
+# Data: 24/05/2026
+
+# ── Sua resposta abaixo ──────────────────────────────────────────────────────
+
+"""
+1. RASTREAMENTO PASSO A PASSO (TABELA DE ITERAÇÃO):
+
+O comando 'range(1, 6)' gera os números: 1, 2, 3, 4 e 5. 
+O loop executa 5 iterações no total.
+
+• Antes do loop: total = 0
+
+• Iteração 1:
+  - Valor de i: 1
+  - Condição (1 % 2 != 0): True (1 é ímpar)
+  - Cálculo: total = 0 + 1
+  - Valor de total: 1
+
+• Iteração 2:
+  - Valor de i: 2
+  - Condição (2 % 2 != 0): False (2 é par)
+  - Cálculo: Não altera o total
+  - Valor de total: 1
+
+• Iteração 3:
+  - Valor de i: 3
+  - Condição (3 % 2 != 0): True (3 é ímpar)
+  - Cálculo: total = 1 + 3
+  - Valor de total: 4
+
+• Iteração 4:
+  - Valor de i: 4
+  - Condição (4 % 2 != 0): False (4 é par)
+  - Cálculo: Não altera o total
+  - Valor de total: 4
+
+• Iteração 5:
+  - Valor de i: 5
+  - Condição (5 % 2 != 0): True (5 é ímpar)
+  - Cálculo: total = 4 + 5
+  - Valor de total: 9
+
+
+2. VALOR FINAL DE TOTAL:
+O valor exibido pelo print(total) ao final do programa é 9.
+
+
+3. O QUE O CÓDIGO CALCULA?
+O código calcula a soma de todos os números ímpares dentro do intervalo de 1 a 5 (inclusive).
+Neste caso: 1 + 3 + 5 = 9.
+"""
