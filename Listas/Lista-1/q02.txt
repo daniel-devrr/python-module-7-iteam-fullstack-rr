@@ -1,0 +1,39 @@
+Lista 01 — Questão 02: Tipos e Conversão
+Aluno: Daniel
+Data:  (data)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ENUNCIADO:
+Para cada linha abaixo, indique: (a) o tipo do resultado e (b) o valor.
+Responda por raciocínio ANTES de executar. Depois confirme no REPL.
+
+  print(type(10 / 2))         # tipo: ?   valor: ?
+  print(type(10 // 2))        # tipo: ?   valor: ?
+  print(int(3.9))             # tipo: ?   valor: ?
+  print(bool([]))             # tipo: ?   valor: ?
+  print(bool("False"))       # tipo: ?   valor: ?
+  print(str(True) == "True") # tipo: ?   valor: ?
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SUA RESPOSTA:
+
+ print(type(10 / 2))         # tipo: float   valor: 5.0
+ 
+ print(type(10 // 2))        # tipo: inteiro   valor: 5
+ 
+ print(int(3.9))             # tipo: inteiro   valor: 3 
+    RESPOSTA> Apesar do valor real ser 3.9(float), o int() converte o valor para 3(inteiro)
+
+print(bool([]))             # tipo: bool   valor: False
+    RESPOSTA> Quando convertemos os colchetes para booleano o Python trata o valor de uma lista vazia como False.
+        então como nesse caso os colchetes estão vazios, o valor printado vai ser: False
+
+print(bool("False"))       # tipo: booll   valor: True
+    RESPOSTA> quando o Python converte o valor de "False", ele não converte o elemento interno da string. Ele apenas
+        avalia o valor lógico interno da string. Como a string "False" está preenchida e não vazia, o valor lógico
+        convertido é True.
+
+print(str(True) == "True") # tipo: bool   valor: True
+    RESPOSTA> quando fazemos essa validação, o valor printado vai ser True, no tipo bool,
+        pois estamos printado uma operação lógico, onde se valida somente se é True or False.
+        E como str() converte o valor True para "True", a operação é verdadeira(True)
