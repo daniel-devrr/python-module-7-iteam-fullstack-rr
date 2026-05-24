@@ -1,0 +1,72 @@
+# Lista 01 — Questão 07: Progressão e Análise
+# Aluno: Daniel
+# Data: 24/05/2026
+
+# ── Enunciado ───────────────────────────────────────────────────────────────
+# Leia 10 notas (0.0–10.0) com validação (try/except + while para inválidas).
+# Exiba: maior nota, menor nota, média, quantidade acima da média e
+# classificação (Aprovado ≥ 7.0, Recuperação ≥ 5.0, Reprovado).
+# Explique em comentários por que escolheu for ou while em cada parte.
+
+# ── Sua solução abaixo ──────────────────────────────────────────────────────
+
+notas = []
+TOTAL_NOTAS = 10
+
+# ── JUSTIFICATIVA DAS ESTRUTURAS DE REPETIÇÃO ───────────────────────────────
+# 1. Escolha do 'for': Usei o 'for' para controlar o fluxo principal porque sabemos 
+#    exatamente a quantidade de repetições (devem ser lidas 10 notas no total).
+# 2. Escolha do 'while': Usei o 'while True' interno para a validação. Ele garante 
+#    que o programa fique preso pedindo a mesma nota até que o usuário digite um 
+#    valor válido (número entre 0 e 10), sem avançar ou quebrar o código.
+# ────────────────────────────────────────────────────────────────────────────
+
+# Loop principal para coletar as 10 notas
+for i in range(1, TOTAL_NOTAS + 1):
+    
+    # Loop de validação de cada nota individual
+    while True:
+        try:
+            nota = float(input(f"Digite a {i}ª nota (0.0 a 10.0): "))
+            
+            if nota < 0.0 or nota > 10.0:
+                raise ValueError("A nota deve estar entre 0.0 e 10.0.")
+            
+            # Se chegou aqui, a nota é válida. Adiciona na lista e quebra o 'while'
+            notas.append(nota)
+            break
+            
+        except ValueError as erro:
+            print(f"[ERRO]: Entrada inválida ({erro}). Tente novamente.")
+
+# ── PROCESSAMENTO DOS DADOS ─────────────────────────────────────────────────
+
+# Cálculos básicos utilizando funções nativas do Python
+maior = max(notas)
+menor = min(notas)
+media = sum(notas) / len(notas)
+
+# Contagem de notas acima da média usando list comprehension
+# 3. Escolha do 'for' em linha (compreensão): Escolhido por ser a forma mais limpa 
+#    de filtrar e contar itens em uma coleção de tamanho conhecido (as 10 notas).
+acima_da_media = len([n for n in notas if n > media])
+
+# Definição da classificação com base na média obtida
+if media >= 7.0:
+    classificacao = "Aprovado"
+elif media >= 5.0:
+    classificacao = "Recuperação"
+else:
+    classificacao = "Reprovado"
+
+# ── EXIBIÇÃO DOS RESULTADOS ─────────────────────────────────────────────────
+
+print("\n" + "═"*40)
+print("             ANÁLISE DE NOTAS")
+print("═"*40)
+print(f"Maior nota obtida: {maior:.1f}")
+print(f"Menor nota obtida: {menor:.1f}")
+print(f"Média da turma:    {media:.2f}")
+print(f"Alunos acima da média da turma: {acima_da_media}")
+print(f"Situação Final da Turma:        {classificacao}")
+print("═"*40)
