@@ -1,0 +1,23 @@
+Lista 02 — Questão 07: Interpretação de Classe
+Aluno: (seu nome)
+Data:  (data)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ENUNCIADO:
+Leia a classe ContaBancaria do enunciado e responda SEM executar:
+  (a) O que self.saldo representa — por que usar self e não variável local?
+  (b) O que acontece se você chamar conta.sacar(2000) com saldo = 500?
+  (c) Reescreva __str__ para exibir também o número da conta.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SUA RESPOSTA:
+
+(a) O que o self.saldo representa?
+O self.saldo é um atributo do objeto, ou seja, é uma variável que pertence à instância da conta e fica salva enquanto o objeto existir. A gente usa o self porque ele faz a ligação com aquele objeto específico. Se usássemos uma variável local (só dentro do método), o valor seria perdido assim que o método terminasse de rodar. Com o self, o saldo "sobrevive" entre as chamadas dos métodos depositar ou sacar.
+
+(b) O que acontece se chamar conta.sacar(2000) com saldo = 500?
+Como 2000 é maior que 500, a condição de saldo insuficiente seria ativada. O método provavelmente vai imprimir uma mensagem de erro (tipo "Saldo insuficiente") e não vai subtrair nada do valor original. O saldo da conta continuaria sendo 500, porque o código não permitiria que o saldo ficasse negativo.
+
+(c) Reescrevendo o str
+def __str__(self):
+    return f"Conta: {self.numero} | Saldo: R$ {self.saldo:.2f}"
