@@ -1,10 +1,10 @@
 #calculos.py
 
 def calcular_imc(peso, altura):
-    imc = peso / altura
+    imc = peso / (altura*altura)
     return imc
 
-def calassicar_imc(imc):
+def classificar_imc(imc):
 
     msg_al = 'Alerta!'
     msg_pr = 'Seu IMC está: '

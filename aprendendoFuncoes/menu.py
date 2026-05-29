@@ -8,7 +8,8 @@ def tela_de_entrada():
     print("================================")
 
 def obter_opcao():
-    return int(input("\nDigite 1 para calcular ou 0 para Sair: "))
+    return 
+
 
 def fluxo_calculo():
     print("\n--- NOVO CÁLCULO ---")
